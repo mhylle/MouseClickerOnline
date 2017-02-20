@@ -31,15 +31,15 @@ export class ScoreService {
                 mpsFinal[j] += mps[j];
               } else {
                 mpsFinal[j] += mps[j];
+                let number = mps[j];
                 for (let k = 2; k <= amount; k++) {
-                  let number = mps[j] * spawner.productionFactor;
-                  mpsFinal[j] += Math.floor(number);
+                  number = number * spawner.productionFactor;
                 }
+                mpsFinal[j] += Math.floor(number);
               }
             }
           }
         }
-        console.log("incrementing score");
         this.incrementScore(mpsFinal);
       }
     });
