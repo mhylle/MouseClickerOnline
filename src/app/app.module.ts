@@ -13,6 +13,7 @@ import {UserService} from "./services/user.service";
 import {ShopService} from "./shop/shop.service";
 import { SpawnerComponent } from './spawner/spawner.component';
 import {SpawnerService} from "./spawner/spawner.service";
+import {NumbersService} from "./services/numbers.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {SpawnerService} from "./spawner/spawner.service";
     FormsModule,
     HttpModule
   ],
-  providers: [UserService, ScoreService, ShopService, SpawnerService],
+  providers: [UserService, ScoreService, ShopService, SpawnerService, NumbersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
