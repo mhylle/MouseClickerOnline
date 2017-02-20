@@ -2,8 +2,12 @@
 
 Felix likes mice. The more the merrier. Help keep felix happy by ensuring there is enough mice for him!
 
-
-
+* Click on the mouse house to release mice.
+* Buy buildings and incentives that help spawn more mice.
+* Earn achievements for various activities.
+* Customize your mice generators.
+ * Provide special abilities for the mice generators.
+* Remember to pet Felix for extra happiness.
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
 
 ## Development server
