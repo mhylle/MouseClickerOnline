@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ScoreService} from "../score.service";
+import {ScoreService} from "../services/score.service";
 
 @Component({
   selector: 'mouse',
@@ -14,6 +14,6 @@ export class MouseComponent implements OnInit {
   }
 
   doClick() {
-    this.scoreService.incrementScore(1);
+    this.scoreService.incrementScore([1,0,0,0,0,0,0,0,0,0,0,0]);
   }
 }

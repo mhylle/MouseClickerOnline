@@ -1,3 +1,10 @@
-<p>
-  shop works!
-</p>
+<div class="row">
+  <div *ngFor="let spawner of spawners" class="col-md-1 shop-item">
+    <div class="spawnerName">{{spawner.name}}</div>
+    <div class="spawnerPrice">
+      {{convertToCost(spawner)}}
+    </div>
+    <div>Owned: {{owned(spawner)}}</div>
+    <div><input type="button" (click)="purchase(spawner)" [disabled]="canAfford(spawner)" value="Purchase"></div>
+  </div>
+</div>

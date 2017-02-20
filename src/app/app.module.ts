@@ -6,22 +6,29 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MouseComponent } from './mouse/mouse.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
-import {ScoreService} from "./score.service";
+import {ScoreService} from "./services/score.service";
 import { ShopComponent } from './shop/shop.component';
+import { UserComponent } from './user/user.component';
+import {UserService} from "./services/user.service";
+import {ShopService} from "./shop/shop.service";
+import { SpawnerComponent } from './spawner/spawner.component';
+import {SpawnerService} from "./spawner/spawner.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     MouseComponent,
     ScoreboardComponent,
-    ShopComponent
+    ShopComponent,
+    UserComponent,
+    SpawnerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [ScoreService],
+  providers: [UserService, ScoreService, ShopService, SpawnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
