@@ -1,7 +1,6 @@
 /* tslint:disable:no-unused-variable */
-
-import {TestBed, async, inject} from '@angular/core/testing';
-import {NumbersService} from './numbers.service';
+import {TestBed, inject} from "@angular/core/testing";
+import {NumbersService} from "./numbers.service";
 
 describe('NumbersService', () => {
   beforeEach(() => {
@@ -51,5 +50,11 @@ describe('NumbersService', () => {
   }));
   it('should subtract [1,0,0,0,0] from [0,1,0,0,0] and yield [999,0,0,0,0]', inject([NumbersService], (service: NumbersService) => {
     expect(service.subtract([0, 1, 0, 0, 0], [1, 0, 0, 0, 0])).toEqual([999, 0, 0, 0, 0]);
+  }));
+  it('should subtract [1,0,0,0,0] from [0,0,1,0,0] and yield [999,0,0,0,0]', inject([NumbersService], (service: NumbersService) => {
+    expect(service.subtract([0, 0, 1, 0, 0], [1, 0, 0, 0, 0])).toEqual([999, 999, 0, 0, 0]);
+  }));
+  it('should subtract [1,1,0,0,0] from [0,1,0,0,0] and yield [0,0,0,0,0]', inject([NumbersService], (service: NumbersService) => {
+    expect(service.subtract([1, 0, 0, 0, 0], [1, 1, 0, 0, 0])).toEqual([0, 0, 0, 0, 0]);
   }));
 });

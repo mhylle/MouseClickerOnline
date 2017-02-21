@@ -42,21 +42,23 @@ export class NumbersService {
     for (let i = 0; i < o1.length; i++) {
       result.push(0);
     }
-
+    let factor = 0;
     for (let i = 0; i < o1.length; i++) {
-      result[i] = o1[i] - o2[i];
+      result[i] = o1[i] - o2[i] - factor;
 
       if (result[i] < 0) {
+        let remainder = Math.abs(result[i] % 1000);
+        factor = Math.ceil(Math.abs(result[i] / 1000))
         if (i < result.length - 1) {
-          let remainder = Math.abs(result[i] % 1000);
-          let x = Math.abs(result[i] / 1000);
-          console.log(x);
-          let factor = Math.ceil(x);
-          console.log(factor);
-
           result[i] = 1000 - remainder;
-          result[i + 1] = result[i + 1] - factor;
+        } else {
+          // o2 was larger then o1, define this to be 0 as we do not tolerate negative numbers
+          for (let j = 0; j < result.length; j++) {
+            result[j] = 0;
+          }
         }
+      } else{
+        factor = 0;
       }
     }
     return result;
