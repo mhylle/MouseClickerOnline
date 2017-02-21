@@ -33,7 +33,6 @@ export class NumbersService {
   }
 
   subtract(o1: number[], o2: number[]): number[] {
-    console.log("subtracting");
     if (o1.length != o2.length) {
       return;
     }
@@ -48,12 +47,15 @@ export class NumbersService {
       result[i] = o1[i] - o2[i];
 
       if (result[i] < 0) {
-        if (i<result.length-1) {
+        if (i < result.length - 1) {
+          let remainder = Math.abs(result[i] % 1000);
+          let x = Math.abs(result[i] / 1000);
+          console.log(x);
+          let factor = Math.ceil(x);
+          console.log(factor);
 
-          let mente = Math.abs(Math.floor(result[i] / 1000));
-
-          result[i] = mente * 1000 - result[i];
-          result[i + 1] -= mente;
+          result[i] = 1000 - remainder;
+          result[i + 1] = result[i + 1] - factor;
         }
       }
     }
