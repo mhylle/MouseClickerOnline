@@ -3,6 +3,7 @@ import {Subscription} from "rxjs";
 import {UserService} from "../services/user.service";
 import {ScoreService} from "../services/score.service";
 import {SpawnerService} from "../spawner/spawner.service";
+import {NumbersService} from "../services/numbers.service";
 
 @Component({
   selector: 'scoreboard',
@@ -14,7 +15,7 @@ export class ScoreboardComponent implements OnInit,  OnDestroy {
   score: number[];
   readableScore: string;
 
-  constructor(private userService: UserService, private scoreService: ScoreService, private spawnerService: SpawnerService) {
+  constructor(private userService: UserService, private scoreService: ScoreService) {
   }
 
   ngOnInit() {
@@ -23,16 +24,17 @@ export class ScoreboardComponent implements OnInit,  OnDestroy {
       this.score = score;
       this.readableScore = "0";
       let denominator  = "";
-      for (let i = this.score.length; i >= 0; i--) {
-        if (this.score[i] > 0) {
-          if (denominator != "") {
-            this.readableScore +=  "." + this.score[i] +" " + denominator;
-            break;
+      if (this.score) {
+        for (let i = this.score.length; i >= 0; i--) {
+          if (this.score[i] > 0) {
+            if (denominator != "") {
+              this.readableScore += "." + this.score[i] + " " + denominator;
+              break;
+            }
+            denominator = NumbersService.units[i];
+            this.readableScore = "" + this.score[i];
           }
-          denominator = this.spawnerService.units[i];
-          this.readableScore = "" + this.score[i];
         }
-
       }
     });
   }

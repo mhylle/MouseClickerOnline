@@ -4,7 +4,6 @@ import {Spawner} from "../Spawner";
 @Injectable()
 export class SpawnerService {
   private _spawners: Spawner[];
-  private _units: string[];
 
   constructor() {
     this._spawners = [{
@@ -12,7 +11,7 @@ export class SpawnerService {
       mps: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       cost: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       costFactor: 1.1,
-      productionFactor: 1.5
+      productionFactor: 2
     }, {
       name: 'S2',
       mps: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -81,15 +80,10 @@ export class SpawnerService {
       productionFactor: 1.2
     }];
 
-    this._units = ["", "Kilo", "Mega", "Giga", "Tera", "Peta", "Quadra", "Penta", "Octa", "Supra", "Incra", "Wowsa"];
+
   }
 
   get spawners(): Spawner[] {
     return this._spawners;
   }
-
-  get units() {
-    return this._units;
-  }
-
 }

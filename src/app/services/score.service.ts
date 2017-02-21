@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Observable, Observer} from "rxjs";
 import {UserService} from "./user.service";
 import {NumbersService} from "./numbers.service";
@@ -19,7 +19,6 @@ export class ScoreService {
       let items = this.userService.user.items;
       for (let i = 0; i < items.length; i++) {
         let item = items[i];
-
         let result = this.calculateMps(item.amount, item.spawner);
         this.incrementScore(result);
       }
@@ -27,14 +26,18 @@ export class ScoreService {
   }
 
   calculateMps(amount: number, spawner: Spawner) {
-
     let mps = spawner.mps;
-    let result: number[];
+    let result: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     for (let j = 0; j < amount; j++) {
-      result = NumbersService.multiply(mps, spawner.productionFactor);
+      if (j === 0) {
+        result = NumbersService.multiply(mps, spawner.productionFactor);
+      } else {
+        result = NumbersService.add(result, NumbersService.multiply(mps, spawner.productionFactor));
+      }
     }
     return result;
   }
+
   decrementScore(amount: number[]) {
     let score = NumbersService.subtract(this._score, amount);
     this.userService.user.score = score;
@@ -42,7 +45,6 @@ export class ScoreService {
     if (this._observer) {
       this._observer.next(this._score);
     }
-
   }
 
   incrementScore(amount: number[]) {
@@ -54,6 +56,4 @@ export class ScoreService {
       this._observer.next(this._score);
     }
   }
-
-
 }

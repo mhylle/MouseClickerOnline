@@ -11,6 +11,4 @@ export class AppComponent {
   constructor(private userService: UserService) {
     userService.newUser( "Martin");
   }
-
-  title = 'app works!';
 }

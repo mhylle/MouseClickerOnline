@@ -2,12 +2,13 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class NumbersService {
+  public static units: [string, string, string, string, string, string, string, string, string, string, string, string] = ["", "Kilo", "Mega", "Giga", "Tera", "Peta", "Quadra", "Penta", "Octa", "Supra", "Incra", "Wowsa"];
 
   constructor() {
   }
 
   static add(o1: number[], o2: number[]): number[] {
-    if (o1.length != o2.length) {
+    if (!o1 || !o2 || o1.length != o2.length) {
       return;
     }
     let result: number[] = [];
@@ -28,7 +29,6 @@ export class NumbersService {
         }
       }
     }
-    console.log("Result: " + result);
     return result;
   }
 
@@ -80,6 +80,23 @@ export class NumbersService {
         result.push(factor);
       }
     }
+    return result;
+  }
+
+  static toMostSignificant(o1: number[]) {
+    let result = "";
+    let denominator  = "";
+    for (let i = o1.length; i >= 0; i--) {
+      if (o1[i] > 0) {
+        if (denominator != "") {
+          result += "." + o1[i] + " " + denominator;
+          break;
+        }
+        denominator = NumbersService.units[i];
+        result = "" + o1[i];
+      }
+    }
+
     return result;
   }
 }

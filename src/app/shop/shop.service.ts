@@ -10,7 +10,7 @@ import {User} from "../user/User";
 export class ShopService {
 
 
-  constructor(private spawnerService: SpawnerService, private userService: UserService, private scoreService: ScoreService) {
+  constructor(private userService: UserService, private scoreService: ScoreService) {
 
   }
 
@@ -19,7 +19,7 @@ export class ShopService {
     let cost = this.calculateCost(user, spawner);
     for (let i = 0; i < cost.length; i++) {
       if (cost[i] > 0) {
-        return Math.floor(cost[i]) + " " + this.spawnerService.units[i];
+        return Math.floor(cost[i]) + " " + NumbersService.units[i];
       }
     }
   }

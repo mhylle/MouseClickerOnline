@@ -4,6 +4,7 @@ import {Spawner} from "../Spawner";
 import {SpawnerService} from "../spawner/spawner.service";
 import {UserService} from "../services/user.service";
 import {ScoreService} from "../services/score.service";
+import {NumbersService} from "../services/numbers.service";
 
 @Component({
   selector: 'shop',
@@ -47,11 +48,12 @@ export class ShopComponent implements OnInit {
       for (let i = 0; i < this.userService.user.items.length; i++) {
         let obj = this.userService.user.items[i];
         if (spawner == obj.spawner) {
-          return this.scoreService.calculateMps(obj.amount, spawner);
+          return NumbersService.toMostSignificant(this.scoreService.calculateMps(obj.amount, spawner));
         }
       }
     }
-    return spawner.mps;
+
+    return  NumbersService.toMostSignificant(spawner.mps);
   }
 
   canAfford(spawner: Spawner) {
