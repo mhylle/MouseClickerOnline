@@ -11,8 +11,8 @@ export class SpawnerService {
       name: 'S1',
       mps: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       cost: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      costFactor: 1.01,
-      productionFactor: 1.25
+      costFactor: 1.1,
+      productionFactor: 1.5
     }, {
       name: 'S2',
       mps: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

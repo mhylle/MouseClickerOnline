@@ -5,6 +5,7 @@
       {{convertToCost(spawner)}}
     </div>
     <div>Owned: {{owned(spawner)}}</div>
+    <div>MPS: {{mps(spawner)}}</div>
     <div><input type="button" (click)="purchase(spawner)" [disabled]="canAfford(spawner)" value="Purchase"></div>
   </div>
 </div>

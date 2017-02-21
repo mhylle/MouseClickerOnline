@@ -6,7 +6,7 @@ export class NumbersService {
   constructor() {
   }
 
-  add(o1: number[], o2: number[]): number[] {
+  static add(o1: number[], o2: number[]): number[] {
     if (o1.length != o2.length) {
       return;
     }
@@ -32,7 +32,7 @@ export class NumbersService {
     return result;
   }
 
-  subtract(o1: number[], o2: number[]): number[] {
+  static subtract(o1: number[], o2: number[]): number[] {
     if (o1.length != o2.length) {
       return;
     }
@@ -48,7 +48,7 @@ export class NumbersService {
 
       if (result[i] < 0) {
         let remainder = Math.abs(result[i] % 1000);
-        factor = Math.ceil(Math.abs(result[i] / 1000))
+        factor = Math.ceil(Math.abs(result[i] / 1000));
         if (i < result.length - 1) {
           result[i] = 1000 - remainder;
         } else {
@@ -57,8 +57,27 @@ export class NumbersService {
             result[j] = 0;
           }
         }
-      } else{
+      } else {
         factor = 0;
+      }
+    }
+    return result;
+  }
+
+  static multiply(o1: number[], factor: number) {
+    let result: number[] = [];
+
+    for (let i = 0; i < o1.length; i++) {
+      if (result.length === i) {
+        result.push(Math.round(o1[i] * factor));
+      } else {
+        result[i] += Math.round(o1[i] * factor);
+      }
+      if (result[i] > 999) {
+        let remainder = result[i] % 1000;
+        let factor = Math.floor(result[i] / 1000);
+        result[i] = remainder;
+        result.push(factor);
       }
     }
     return result;
