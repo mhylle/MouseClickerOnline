@@ -17,11 +17,7 @@ export class ShopService {
   getUnit(spawner: Spawner) {
     let user = this.userService.user;
     let cost = this.calculateCost(user, spawner);
-    for (let i = 0; i < cost.length; i++) {
-      if (cost[i] > 0) {
-        return Math.floor(cost[i]) + " " + NumbersService.units[i];
-      }
-    }
+    return NumbersService.toMostSignificant(cost)
   }
 
   calculateCost(user: User, spawner: Spawner) {
@@ -59,7 +55,7 @@ export class ShopService {
       }
       if (!foundItem) {
         this.scoreService.decrementScore(spawner.cost);
-        user.items = [{amount: 1, spawner: spawner}];
+        user.items.push({amount: 1, spawner: spawner});
       }
     } else {
       this.scoreService.decrementScore(spawner.cost);

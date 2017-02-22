@@ -89,14 +89,14 @@ export class NumbersService {
     for (let i = o1.length; i >= 0; i--) {
       if (o1[i] > 0) {
         if (denominator != "") {
-          result += "." + o1[i] + " " + denominator;
+          result += "." + o1[i];
           break;
+        } else {
+          denominator = NumbersService.units[i];
+          result = "" + o1[i];
         }
-        denominator = NumbersService.units[i];
-        result = "" + o1[i];
       }
     }
-
-    return result;
+    return result + " " + denominator;
   }
 }
