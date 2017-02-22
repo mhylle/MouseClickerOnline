@@ -20,7 +20,6 @@ export class ShopComponent implements OnInit {
 
   ngOnInit() {
     this.spawners = this.spawnerService.spawners;
-    console.log("spawners: " + this.spawners);
   }
 
   convertToCost(spawner: Spawner) {

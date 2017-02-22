@@ -28,12 +28,14 @@ export class ScoreService {
   calculateMps(amount: number, spawner: Spawner) {
     let mps = spawner.mps;
     let result: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    for (let j = 0; j < amount; j++) {
-      if (j === 0) {
-        result = NumbersService.multiply(mps, spawner.productionFactor);
-      } else {
-        result = NumbersService.add(result, NumbersService.multiply(mps, spawner.productionFactor));
-      }
+    if (amount == 1) {
+      return mps;
+    }
+
+    result = mps;
+    for (let i = 0; i < amount; i++) {
+      result = NumbersService.multiply(result, spawner.productionFactor);
+      result = NumbersService.add(result, mps);
     }
     return result;
   }
