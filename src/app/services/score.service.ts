@@ -7,13 +7,17 @@ import {Spawner} from "../Spawner";
 @Injectable()
 export class ScoreService {
   private _score: number[];
+  private _mps: number[];
   scoreChange: Observable<number[]>;
-  private _observer: Observer<any>;
+  mpsChange: Observable<number[]>;
+  private _scoreObserver: Observer<any>;
+  private _mpsObserver: Observer<any>;
 
 
   constructor(private userService: UserService) {
     this._score = this.userService.user.score;
-    this.scoreChange = new Observable(observer => this._observer = observer).share();
+    this.scoreChange = new Observable(observer => this._scoreObserver = observer).share();
+    this.mpsChange = new Observable(observer => this._mpsObserver = observer).share();
     let timer = Observable.timer(0, 1000);
     timer.subscribe(t => {
       let items = this.userService.user.items;
@@ -40,12 +44,28 @@ export class ScoreService {
     return result;
   }
 
+  updateTotalMps() {
+    let user = this.userService.user;
+    let result: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
+    if (user.items) {
+      for (let i = 0; i < user.items.length; i++) {
+        let item = user.items[i];
+        let mps = this.calculateMps(item.amount, item.spawner);
+        result = NumbersService.add(result, mps);
+      }
+    }
+    this._mps = result;
+    if (this._mpsObserver) {
+      this._mpsObserver.next(this._mps);
+    }
+  }
+
   decrementScore(amount: number[]) {
     let score = NumbersService.subtract(this._score, amount);
     this.userService.user.score = score;
     this._score = score;
-    if (this._observer) {
-      this._observer.next(this._score);
+    if (this._scoreObserver) {
+      this._scoreObserver.next(this._score);
     }
   }
 
@@ -54,8 +74,8 @@ export class ScoreService {
     this.userService.user.score = score;
     this._score = score;
 
-    if (this._observer) {
-      this._observer.next(this._score);
+    if (this._scoreObserver) {
+      this._scoreObserver.next(this._score);
     }
   }
 }

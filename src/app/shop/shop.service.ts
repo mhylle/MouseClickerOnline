@@ -51,15 +51,18 @@ export class ShopService {
           this.scoreService.decrementScore(this.calculateCost(user, spawner));
           obj.amount += 1;
           foundItem = true;
+          this.scoreService.updateTotalMps();
         }
       }
       if (!foundItem) {
         this.scoreService.decrementScore(spawner.cost);
         user.items.push({amount: 1, spawner: spawner});
+        this.scoreService.updateTotalMps();
       }
     } else {
       this.scoreService.decrementScore(spawner.cost);
       user.items = [{amount: 1, spawner: spawner}];
+      this.scoreService.updateTotalMps();
     }
   }
 }

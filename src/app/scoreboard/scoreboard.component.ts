@@ -11,16 +11,22 @@ import {NumbersService} from "../services/numbers.service";
   styleUrls: ['./scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit,  OnDestroy {
-  subscription: Subscription;
+  scoreSubscription: Subscription;
+  mpsSubscription: Subscription;
   score: number[];
   readableScore: string;
+  currentMps: string;
+  mps: number[];
 
   constructor(private userService: UserService, private scoreService: ScoreService) {
   }
 
   ngOnInit() {
     this.score = this.userService.user.score;
-    this.subscription = this.scoreService.scoreChange.subscribe(score => {
+    this.readableScore = "0";
+    this.currentMps= "0";
+    this.mps = [0,0,0,0,0,0,0,0,0,0,0,0];
+    this.scoreSubscription = this.scoreService.scoreChange.subscribe(score => {
       this.score = score;
       this.readableScore = "0";
       let denominator  = "";
@@ -37,9 +43,27 @@ export class ScoreboardComponent implements OnInit,  OnDestroy {
         }
       }
     });
+    this.mpsSubscription = this.scoreService.mpsChange.subscribe(mps => {
+      this.mps = mps;
+      this.currentMps = "0";
+      let denominator  = "";
+      if (this.mps) {
+        for (let i = this.mps.length; i >= 0; i--) {
+          if (this.mps[i] > 0) {
+            if (denominator != "") {
+              this.currentMps += "." + this.mps[i] + " " + denominator;
+              break;
+            }
+            denominator = NumbersService.units[i];
+            this.currentMps = "" + this.mps[i];
+          }
+        }
+      }
+    });
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.scoreSubscription.unsubscribe();
+    this.mpsSubscription.unsubscribe();
   }
 }
