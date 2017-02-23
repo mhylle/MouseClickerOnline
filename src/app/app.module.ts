@@ -15,6 +15,8 @@ import { SpawnerComponent } from './spawner/spawner.component';
 import {SpawnerService} from "./spawner/spawner.service";
 import {NumbersService} from "./services/numbers.service";
 import {AchievementEngineService} from "./achievements/Engine";
+import { BadgeComponent } from './achievements/badge/badge.component';
+import { RibbonComponent } from './achievements/ribbon/ribbon.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {AchievementEngineService} from "./achievements/Engine";
     ScoreboardComponent,
     ShopComponent,
     UserComponent,
-    SpawnerComponent
+    SpawnerComponent,
+    BadgeComponent,
+    RibbonComponent
   ],
   imports: [
     BrowserModule,

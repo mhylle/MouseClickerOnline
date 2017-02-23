@@ -9,21 +9,21 @@ export class SpawnerService {
     this._spawners = [{
       name: 'S1',
       mps: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      cost: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      costFactor: 1.1,
+      cost: [15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      costFactor: 1.16,
       productionFactor: 1.05
     }, {
       name: 'S2',
       mps: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       cost: [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      costFactor: 1.11,
-      productionFactor: 1.06
+      costFactor: 1.16,
+      productionFactor: 1.05
     }, {
       name: 'S3',
       mps: [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       cost: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      costFactor: 1.13,
-      productionFactor: 1.12
+      costFactor: 1.16,
+      productionFactor: 1.05
     }, {
       name: 'S4',
       mps: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

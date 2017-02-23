@@ -4,7 +4,8 @@ import {Rule} from "./Rule";
 @Injectable()
 export class AchievementEngineService {
 
-  rules: Rule[];
+  rules: Rule[] = [];
+
   constructor() {
   }
 
@@ -13,12 +14,13 @@ export class AchievementEngineService {
   }
 
   process(event: any, type: string) {
-    for (let i = 0; i < this.rules.length; i++) {
-      let rule = this.rules[i];
-      if (rule.handle(type)){
-        rule.execute(event);
+    if (this.rules) {
+      for (let i = 0; i < this.rules.length; i++) {
+        let rule = this.rules[i];
+        if (rule.handle(type)) {
+          rule.execute(event);
+        }
       }
-
     }
   }
 }

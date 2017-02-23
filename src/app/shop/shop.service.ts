@@ -29,7 +29,7 @@ export class ShopService {
         if (obj.spawner === spawner) {
           let factor = 1;
           if (obj.amount > 0) {
-            for (let j = 1; j < obj.amount; j++) {
+            for (let j = 0; j < obj.amount; j++) {
               factor = factor * obj.spawner.costFactor;
             }
           }
