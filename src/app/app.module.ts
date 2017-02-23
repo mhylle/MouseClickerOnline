@@ -14,6 +14,7 @@ import {ShopService} from "./shop/shop.service";
 import { SpawnerComponent } from './spawner/spawner.component';
 import {SpawnerService} from "./spawner/spawner.service";
 import {NumbersService} from "./services/numbers.service";
+import {AchievementEngineService} from "./achievements/Engine";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import {NumbersService} from "./services/numbers.service";
     FormsModule,
     HttpModule
   ],
-  providers: [UserService, ScoreService, ShopService, SpawnerService, NumbersService],
+  providers: [UserService, ScoreService, ShopService, SpawnerService, NumbersService, AchievementEngineService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
