@@ -1,10 +1,24 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Rule} from "./Rule";
 
 @Injectable()
 export class AchievementEngineService {
 
-    constructor() { }
+  rules: Rule[];
+  constructor() {
+  }
 
-    addRule(private rule: Rule)
+  addRule(rule: Rule) {
+    this.rules.push(rule);
+  }
 
+  process(event: any, type: string) {
+    for (let i = 0; i < this.rules.length; i++) {
+      let rule = this.rules[i];
+      if (rule.handle(type)){
+        rule.execute(event);
+      }
+
+    }
+  }
 }

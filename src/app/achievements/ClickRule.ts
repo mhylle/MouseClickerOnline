@@ -1,14 +1,20 @@
 import {Rule} from "./Rule";
 export class ClickRule implements Rule {
+  badges: any[];
   constructor() {
 
   }
-  handle(): boolean {
-    return undefined;
+  handle(type:string): boolean {
+    return type == "clicked";
+
   }
 
-  execute(): boolean {
-    return undefined;
+  execute(amount: number): boolean {
+    for (let i = 0; i < this.badges.length; i++) {
+      let obj = this.badges[i];
+
+    }
+    return false;
   }
 
 }
