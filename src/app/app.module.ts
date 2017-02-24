@@ -17,6 +17,7 @@ import {NumbersService} from "./services/numbers.service";
 import {AchievementEngineService} from "./achievements/Engine";
 import { BadgeComponent } from './achievements/badge/badge.component';
 import { RibbonComponent } from './achievements/ribbon/ribbon.component';
+import {BadgeService} from "./services/badge.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { RibbonComponent } from './achievements/ribbon/ribbon.component';
     FormsModule,
     HttpModule
   ],
-  providers: [UserService, ScoreService, ShopService, SpawnerService, NumbersService, AchievementEngineService],
+  providers: [UserService, ScoreService, ShopService, SpawnerService, NumbersService, AchievementEngineService, BadgeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

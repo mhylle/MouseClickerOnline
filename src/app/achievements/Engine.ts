@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Rule} from "./Rule";
+import {BadgeService} from "../services/badge.service";
 
 @Injectable()
 export class AchievementEngineService {
 
   rules: Rule[] = [];
 
-  constructor() {
+  constructor(private badgeService: BadgeService) {
   }
 
   addRule(rule: Rule) {
@@ -18,7 +19,7 @@ export class AchievementEngineService {
       for (let i = 0; i < this.rules.length; i++) {
         let rule = this.rules[i];
         if (rule.handle(type)) {
-          rule.execute(event);
+          rule.execute(event, this.badgeService);
         }
       }
     }
