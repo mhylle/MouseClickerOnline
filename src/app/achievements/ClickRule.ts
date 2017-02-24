@@ -24,7 +24,8 @@ export class ClickRule implements Rule {
             id: "" +  amount,
             name: "Clicked " + amount + " times",
             description: "First time is always tough",
-            rule: amount
+            rule: amount,
+            avatar: "" + amount
           };
           console.log("You have been awarded a badge");
           badgeService.addBadge(badge);
@@ -34,7 +35,8 @@ export class ClickRule implements Rule {
             id: "1",
             name: "Clicked " + amount + " times",
             description: "First time is always tough",
-            rule: amount
+            rule: amount,
+            avatar: "" + amount
           };
           badgeService.addBadge(badge);
           console.log("You have been awarded a badge");

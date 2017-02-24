@@ -3,4 +3,5 @@ export interface Badge {
   name: string;
   description?: string;
   rule: any;
+  avatar?:string;
 }
