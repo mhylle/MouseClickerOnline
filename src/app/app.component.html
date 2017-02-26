@@ -1,7 +1,13 @@
-<h1>
-  {{title}}
-</h1>
-<div class="col-md-8"><scoreboard></scoreboard></div>
-<div class="col-md-4"><app-user></app-user></div>
-<shop></shop>
+<div class="row">
+  <div class="col-md-8">
+    <scoreboard></scoreboard>
+  </div>
+  <div class="col-md-4">
+    <app-user></app-user>
+  </div>
+</div>
+<div style="margin: auto;
+    width: 65%;">
+  <shop></shop>
+</div>
 <mouse (clicked)="mouseClicked($event)"></mouse>

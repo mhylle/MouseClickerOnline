@@ -33,7 +33,10 @@ export class ScoreService {
     let mps = spawner.mps;
     let result: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     if (amount == 1) {
-      return mps;
+      if (Math.random() < spawner.critrate) {
+        result = NumbersService.multiply(mps, spawner.critDamage);
+      }
+      return result;
     }
 
     result = mps;
@@ -41,12 +44,15 @@ export class ScoreService {
       result = NumbersService.multiply(result, spawner.productionFactor);
       result = NumbersService.add(result, mps);
     }
+    if (Math.random() < spawner.critrate) {
+      result = NumbersService.multiply(result, spawner.critDamage);
+    }
     return result;
   }
 
   updateTotalMps() {
     let user = this.userService.user;
-    let result: number[] = [0,0,0,0,0,0,0,0,0,0,0,0];
+    let result: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     if (user.items) {
       for (let i = 0; i < user.items.length; i++) {
         let item = user.items[i];

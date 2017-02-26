@@ -6,3 +6,21 @@ border: 1px solid lightgray;
 input[type="button"]:disabled {
   color: lightgray;
 }
+
+.spawnerSlot {
+  width: 100px;
+  height: 100px;
+  border: solid 1px lightblue;
+  float: left;
+  margin: 4px;
+}
+.spawnerDisplay {
+  width: 150px;
+  height: 150px;
+  border: solid 1px lightgray;
+  float: left;
+  margin: 4px;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(46,46,46,0.57);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(46,46,46,0.57);
+  box-shadow: 1px 1px 2px 0px rgba(46,46,46,0.57);
+}

@@ -1,8 +1,11 @@
 <div>Badges</div>
 <div *ngFor="let badge of badges" class="col-md-2">
-  <div style="position:relative">
-    <div><img src="../../../assets/badges/main.png" style="height:64px; width: 64px;" /></div>
+  <div style="position:relative" title="{{badge.name}}">
+    <div class="badge-border">
+      <div class="badge-outer">
+        <div class="badge-inner"></div>
+      </div>
+    </div>
     <div style="position: absolute; top: 0px; left: 20px; font-size: 2.5em">{{badge.avatar}}</div>
   </div>
-  {{badge.name}}
 </div>
