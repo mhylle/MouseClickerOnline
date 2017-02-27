@@ -1,8 +1,8 @@
 export enum SpawnerType {
-  TRAP = 1,
-  FEEDER = 2,
-  PETTING = 3,
-  MORPHER = 4,
-  UTILITY = 5,
-  MULTIPLIER = 6
+  TRAP = 0,
+  FEEDER = 1,
+  PETTING = 2,
+  MORPHER = 3,
+  UTILITY = 4,
+  MULTIPLIER = 5
 }

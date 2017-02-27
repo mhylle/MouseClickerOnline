@@ -3,5 +3,6 @@ export interface User {
   id: string;
   name: string;
   score: number[];
-  items?: {amount: number, spawner: Spawner}[];
+  items?: {amount: number, spawner: Spawner, slot: number}[];
+  slots: Spawner[];
 }

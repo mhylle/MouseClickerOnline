@@ -4,7 +4,6 @@ import {Spawner} from "../Spawner";
 import {SpawnerService} from "../spawner/spawner.service";
 import {UserService} from "../services/user.service";
 import {ScoreService} from "../services/score.service";
-import {NumbersService} from "../services/numbers.service";
 import {SpawnerType} from "../spawner/SpawnerType";
 
 @Component({
@@ -28,7 +27,6 @@ export class ShopComponent implements OnInit {
   }
 
   toggleSpawners(spawnerType: SpawnerType) {
-
     if (this.selectedSpawners) {
       if (this.selectedSpawnerType.toString() === spawnerType.toString()) {
         this.selectedSpawners = null;
@@ -45,10 +43,15 @@ export class ShopComponent implements OnInit {
     }
   }
 
-  hideSpawners() {
-    this.selectedSpawners = null;
+  spawnerByType(spawnerType: SpawnerType) {
+    if (this.userService.user.slots) {
+      let slot = this.userService.user.slots[SpawnerType[spawnerType.valueOf()]];
+      if (slot != null) {
+        return slot;
+      }
+      return null;
+    }
   }
-
 }
 class EnumEx {
   static getNamesAndValues<T extends number>(e: any) {

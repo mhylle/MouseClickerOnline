@@ -2,8 +2,8 @@
   <div class="row">
     <span *ngFor="let spawnerType of spawnerTypes" (click)="toggleSpawners(spawnerType)">
       <div class="spawnerSlot">
-        {{spawnerType}}
-
+      <div *ngIf="!spawnerByType(spawnerType)">  {{spawnerType}}</div>
+      <div *ngIf="spawnerByType(spawnerType)"><spawner [spawner]="spawnerByType(spawnerType)"></spawner></div>
       </div>
     </span>
   </div>

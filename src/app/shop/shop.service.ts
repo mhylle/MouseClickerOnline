@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {Spawner} from "../Spawner";
-import {SpawnerService} from "../spawner/spawner.service";
 import {UserService} from "../services/user.service";
 import {ScoreService} from "../services/score.service";
 import {NumbersService} from "../services/numbers.service";
@@ -33,7 +32,7 @@ export class ShopService {
               factor = factor * obj.spawner.costFactor;
             }
           }
-          cost =  NumbersService.multiply(obj.spawner.cost, factor);
+          cost = NumbersService.multiply(obj.spawner.cost, factor);
         }
       }
     }
@@ -42,26 +41,18 @@ export class ShopService {
 
   purchase(spawner: Spawner) {
     let user = this.userService.user;
-    if (user.items) {
-      let items = user.items;
-      let foundItem : boolean = false;
-      for (let i = 0; i < items.length; i++) {
-        let obj = items[i];
-        if (obj.spawner === spawner) {
+    if (user.slots[spawner.type] != null) {
+      for (let i = 0; i < user.items.length; i++) {
+        if (user.items[i].spawner === spawner) {
+          user.items[i].amount += 1;
           this.scoreService.decrementScore(this.calculateCost(user, spawner));
-          obj.amount += 1;
-          foundItem = true;
           this.scoreService.updateTotalMps();
         }
       }
-      if (!foundItem) {
-        this.scoreService.decrementScore(spawner.cost);
-        user.items.push({amount: 1, spawner: spawner});
-        this.scoreService.updateTotalMps();
-      }
     } else {
       this.scoreService.decrementScore(spawner.cost);
-      user.items = [{amount: 1, spawner: spawner}];
+      user.items.push({amount: 1, spawner: spawner, slot: spawner.type});
+      user.slots[spawner.type] = spawner;
       this.scoreService.updateTotalMps();
     }
   }

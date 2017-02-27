@@ -8,7 +8,7 @@ export class SpawnerService {
 
   constructor() {
     this._spawners = [{
-      name: 'Mouse trap A',
+      name: 'Mousetrap A',
       mps: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       cost: [15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       costFactor: 1.16,
@@ -18,12 +18,12 @@ export class SpawnerService {
       critrate: 0.25,
       critDamage: 2.00
     }, {
-      name: 'Mouse Trap B',
-      mps: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      cost: [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      name: 'Mousetrap B',
+      mps: [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      cost: [15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       costFactor: 1.16,
-      type: SpawnerType.TRAP,
       productionFactor: 1.05,
+      type: SpawnerType.TRAP,
       critrate: 0.01,
       critDamage: 1.25
     }, {
@@ -37,8 +37,8 @@ export class SpawnerService {
       critDamage: 2.00
     }, {
       name: 'S4',
-      mps: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      cost: [0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      mps: [80, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      cost: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       costFactor: 1.15,
       type: SpawnerType.FEEDER,
       productionFactor: 1.14,

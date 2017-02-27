@@ -5,16 +5,20 @@ import {SpawnerService} from "../spawner/spawner.service";
 @Injectable()
 export class UserService {
   private _user: User;
-  constructor() { }
+
+  constructor() {
+  }
 
   newUser(name: string) {
     this._user = {
       id: "1",
       name: name,
-      score: [0,0,0,0,0,0,0,0,0,0,0,0],
-      items: []
+      score: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      items: [],
+      slots: [null, null, null, null, null, null]
     };
   }
+
   set user(user: User) {
     this._user = user;
   }

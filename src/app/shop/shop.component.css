@@ -4,15 +4,15 @@ border: 1px solid lightgray;
 }
 
 .spawnerSlot {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border: solid 1px lightblue;
   float: left;
   margin: 4px;
 }
 .spawnerDisplay {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border: solid 1px lightgray;
   float: left;
   margin: 4px;
