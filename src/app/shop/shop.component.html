@@ -3,6 +3,7 @@
     <span *ngFor="let spawnerType of spawnerTypes" (click)="toggleSpawners(spawnerType)">
       <div class="spawnerSlot">
         {{spawnerType}}
+
       </div>
     </span>
   </div>
@@ -10,14 +11,7 @@
   <div *ngIf="selectedSpawners">
     Choose between:
     <div *ngFor="let spawner of selectedSpawners" class="spawnerDisplay">
-      <div *ngIf="spawner.avatar"><img src="../../assets/icons/{{spawner.avatar}}" width="64px;"/></div>
-      <div class="spawnerName">{{spawner.name}}</div>
-      <div class="spawnerPrice">
-        {{convertToCost(spawner)}}
-      </div>
-      <div>Owned: {{owned(spawner)}}</div>
-      <div>MPS: {{mps(spawner)}}</div>
-      <div><input type="button" (click)="purchase(spawner)" [disabled]="canAfford(spawner)" value="Purchase"></div>
+      <spawner [spawner]="spawner"></spawner>
     </div>
   </div>
 </div>

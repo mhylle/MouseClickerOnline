@@ -27,58 +27,6 @@ export class ShopComponent implements OnInit {
     this.spawners = this.spawnerService.spawners;
   }
 
-  convertToCost(spawner: Spawner) {
-    return this.shopService.getUnit(spawner);
-  }
-
-  purchase(spawner: Spawner) {
-    this.shopService.purchase(spawner);
-  }
-
-  owned(spawner: Spawner) {
-    if (this.userService.user.items) {
-      for (let i = 0; i < this.userService.user.items.length; i++) {
-        let obj = this.userService.user.items[i];
-        if (spawner == obj.spawner) {
-          return obj.amount;
-        }
-      }
-    }
-    return 0;
-  }
-
-  mps(spawner: Spawner) {
-    if (this.userService.user.items) {
-      for (let i = 0; i < this.userService.user.items.length; i++) {
-        let obj = this.userService.user.items[i];
-        if (spawner == obj.spawner) {
-          return NumbersService.toMostSignificant(this.scoreService.calculateMps(obj.amount, spawner));
-        }
-      }
-    }
-
-    return NumbersService.toMostSignificant(spawner.mps);
-  }
-
-  canAfford(spawner: Spawner) {
-    let cost = this.shopService.calculateCost(this.userService.user, spawner);
-    for (let i = cost.length - 1; i >= 0; i--) {
-      if (this.userService.user.score && this.userService.user.score[i] > 0) {
-        if (cost[i] == 0) {
-          return false;
-        }
-        if (cost[i] <= this.userService.user.score[i]) {
-          return false;
-        }
-      }
-
-      if (cost[i] > 0) {
-        return true;
-      }
-    }
-    return true;
-  }
-
   toggleSpawners(spawnerType: SpawnerType) {
 
     if (this.selectedSpawners) {

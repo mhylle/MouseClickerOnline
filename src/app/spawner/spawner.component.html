@@ -1,3 +1,8 @@
-<p>
-  spawner works!
-</p>
+<div *ngIf="spawner.avatar"><img src="../../assets/icons/{{spawner.avatar}}" width="64px;"/></div>
+<div class="spawnerName">{{spawner.name}}</div>
+<div class="spawnerPrice">
+  {{convertToCost(spawner)}}
+</div>
+<div>Owned: {{owned(spawner)}}</div>
+<div>MPS: {{mps(spawner)}}</div>
+<div><input type="button" (click)="purchase(spawner)" [disabled]="canAfford(spawner)" value="Purchase"></div>

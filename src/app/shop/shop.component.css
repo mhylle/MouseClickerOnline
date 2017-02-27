@@ -3,10 +3,6 @@ border: 1px solid lightgray;
   margin: 2px;
 }
 
-input[type="button"]:disabled {
-  color: lightgray;
-}
-
 .spawnerSlot {
   width: 100px;
   height: 100px;
