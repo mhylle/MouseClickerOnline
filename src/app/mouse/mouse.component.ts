@@ -20,7 +20,7 @@ export class MouseComponent implements OnInit {
   }
 
   doClick() {
-    this.scoreService.incrementScore([1,0,0,0,0,0,0,0,0,0,0,0]);
+    this.scoreService.incrementScore([20,0,0,0,0,0,0,0,0,0,0,0]);
     this.clickCount++;
     this.clicked.emit(this.clickCount);
   }

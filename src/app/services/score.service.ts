@@ -23,7 +23,7 @@ export class ScoreService {
       let items = this.userService.user.items;
       for (let i = 0; i < items.length; i++) {
         let item = items[i];
-        let result = this.calculateMps(item.amount, item.spawner);
+        let result = this.calculateDamage(item.amount, item.spawner);
         this.incrementScore(result);
       }
     });
@@ -31,22 +31,30 @@ export class ScoreService {
 
   calculateMps(amount: number, spawner: Spawner) {
     let mps = spawner.mps;
-    let result: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let result: number[] = [];
+    for (let i = 0; i < mps.length; i++) {
+      result.push(mps[i]);
+    }
+
     if (amount == 1) {
-      if (Math.random() < spawner.critrate) {
-        result = NumbersService.multiply(mps, spawner.critDamage);
-      }
       return result;
     }
 
-    result = mps;
     for (let i = 0; i < amount; i++) {
       result = NumbersService.multiply(result, spawner.productionFactor);
       result = NumbersService.add(result, mps);
     }
-    if (Math.random() < spawner.critrate) {
+
+    return result;
+  }
+
+  calculateDamage(amount: number, spawner: Spawner) {
+    let result: number[] = this.calculateMps(amount, spawner);
+    let chance = Math.random();
+    if (chance < spawner.critrate) {
       result = NumbersService.multiply(result, spawner.critDamage);
     }
+
     return result;
   }
 

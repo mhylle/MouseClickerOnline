@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from "@angular/core";
+import {Component, OnInit, OnDestroy, ChangeDetectorRef, AfterContentInit} from "@angular/core";
 import {Subscription} from "rxjs";
 import {UserService} from "../services/user.service";
 import {ScoreService} from "../services/score.service";
@@ -10,7 +10,7 @@ import {NumbersService} from "../services/numbers.service";
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.css']
 })
-export class ScoreboardComponent implements OnInit,  OnDestroy {
+export class ScoreboardComponent implements OnInit,  OnDestroy, AfterContentInit  {
   scoreSubscription: Subscription;
   mpsSubscription: Subscription;
   score: number[];
@@ -18,11 +18,16 @@ export class ScoreboardComponent implements OnInit,  OnDestroy {
   currentMps: string;
   mps: number[];
 
-  constructor(private userService: UserService, private scoreService: ScoreService) {
+  constructor(private userService: UserService, private scoreService: ScoreService, private cdr: ChangeDetectorRef) {
   }
+
 
   ngOnInit() {
     this.score = this.userService.user.score;
+
+  }
+
+  ngAfterContentInit(): void {
     this.readableScore = "0";
     this.currentMps= "0";
     this.mps = [0,0,0,0,0,0,0,0,0,0,0,0];
@@ -42,6 +47,7 @@ export class ScoreboardComponent implements OnInit,  OnDestroy {
           }
         }
       }
+
     });
     this.mpsSubscription = this.scoreService.mpsChange.subscribe(mps => {
       this.mps = mps;
@@ -66,4 +72,5 @@ export class ScoreboardComponent implements OnInit,  OnDestroy {
     this.scoreSubscription.unsubscribe();
     this.mpsSubscription.unsubscribe();
   }
+
 }

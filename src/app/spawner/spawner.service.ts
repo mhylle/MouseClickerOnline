@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Spawner} from "../Spawner";
 import {SpawnerType} from "./SpawnerType";
 
@@ -16,7 +16,7 @@ export class SpawnerService {
       type: SpawnerType.TRAP,
       avatar: 'mousetrap_001.gif',
       critrate: 0.25,
-      critDamage:2.00
+      critDamage: 2.00
     }, {
       name: 'Mouse Trap B',
       mps: [10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -25,7 +25,7 @@ export class SpawnerService {
       type: SpawnerType.TRAP,
       productionFactor: 1.05,
       critrate: 0.01,
-      critDamage:1.25
+      critDamage: 1.25
     }, {
       name: 'S3',
       mps: [100, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -34,7 +34,7 @@ export class SpawnerService {
       type: SpawnerType.FEEDER,
       productionFactor: 1.05,
       critrate: 0,
-      critDamage:2.00
+      critDamage: 2.00
     }, {
       name: 'S4',
       mps: [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -43,7 +43,7 @@ export class SpawnerService {
       type: SpawnerType.FEEDER,
       productionFactor: 1.14,
       critrate: 0.01,
-      critDamage:1.25
+      critDamage: 1.25
     }, {
       name: 'S5',
       mps: [0, 250, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -52,7 +52,7 @@ export class SpawnerService {
       type: SpawnerType.PETTING,
       productionFactor: 1.15,
       critrate: 0,
-      critDamage:2.00
+      critDamage: 2.00
     }, {
       name: 'S6',
       mps: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -61,7 +61,7 @@ export class SpawnerService {
       type: SpawnerType.PETTING,
       productionFactor: 1.12,
       critrate: 0.01,
-      critDamage:1.25
+      critDamage: 1.25
     }, {
       name: 'S7',
       mps: [0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -70,7 +70,7 @@ export class SpawnerService {
       type: SpawnerType.MORPHER,
       productionFactor: 1.12,
       critrate: 0,
-      critDamage:2.00
+      critDamage: 2.00
     }, {
       name: 'S8',
       mps: [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
@@ -79,7 +79,7 @@ export class SpawnerService {
       type: SpawnerType.MORPHER,
       productionFactor: 1.12,
       critrate: 0.01,
-      critDamage:1.25
+      critDamage: 1.25
     }, {
       name: 'S9',
       mps: [0, 0, 0, 0, 250, 0, 0, 0, 0, 0, 0, 0],
@@ -88,7 +88,7 @@ export class SpawnerService {
       type: SpawnerType.UTILITY,
       productionFactor: 1.12,
       critrate: 0,
-      critDamage:2.00
+      critDamage: 2.00
     }, {
       name: 'S10',
       mps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
@@ -97,7 +97,7 @@ export class SpawnerService {
       type: SpawnerType.UTILITY,
       productionFactor: 1.12,
       critrate: 0.01,
-      critDamage:1.25
+      critDamage: 1.25
     }, {
       name: 'S11',
       mps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
@@ -106,7 +106,7 @@ export class SpawnerService {
       type: SpawnerType.MULTIPLIER,
       productionFactor: 1.12,
       critrate: 0,
-      critDamage:2.00
+      critDamage: 2.00
     }, {
       name: 'S12',
       mps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -115,7 +115,7 @@ export class SpawnerService {
       type: SpawnerType.MULTIPLIER,
       productionFactor: 1.12,
       critrate: 0.01,
-      critDamage:1.25
+      critDamage: 1.25
     }];
 
 

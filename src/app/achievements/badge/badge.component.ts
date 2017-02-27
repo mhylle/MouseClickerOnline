@@ -4,7 +4,7 @@ import {Subscription} from "rxjs";
 import {Badge} from "../badge";
 
 @Component({
-  selector: 'app-badge',
+  selector: 'badge',
   templateUrl: './badge.component.html',
   styleUrls: ['./badge.component.css']
 })
