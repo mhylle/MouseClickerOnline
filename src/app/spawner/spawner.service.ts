@@ -33,8 +33,8 @@ export class SpawnerService {
       costFactor: 1.16,
       type: SpawnerType.FEEDER,
       productionFactor: 1.05,
-      critrate: 0,
-      critDamage: 2.00
+      critrate: 0.01,
+      critDamage: 1.25
     }, {
       name: 'S4',
       mps: [80, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -42,8 +42,8 @@ export class SpawnerService {
       costFactor: 1.15,
       type: SpawnerType.FEEDER,
       productionFactor: 1.14,
-      critrate: 0.01,
-      critDamage: 1.25
+      critrate: 0.10,
+      critDamage: 2.00
     }, {
       name: 'S5',
       mps: [0, 250, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -51,8 +51,8 @@ export class SpawnerService {
       costFactor: 1.2,
       type: SpawnerType.PETTING,
       productionFactor: 1.15,
-      critrate: 0,
-      critDamage: 2.00
+      critrate: 0.01,
+      critDamage: 1.25
     }, {
       name: 'S6',
       mps: [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -60,8 +60,8 @@ export class SpawnerService {
       costFactor: 1.13,
       type: SpawnerType.PETTING,
       productionFactor: 1.12,
-      critrate: 0.01,
-      critDamage: 1.25
+      critrate: 0.1,
+      critDamage: 3
     }, {
       name: 'S7',
       mps: [0, 0, 500, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -69,8 +69,8 @@ export class SpawnerService {
       costFactor: 1.13,
       type: SpawnerType.MORPHER,
       productionFactor: 1.12,
-      critrate: 0,
-      critDamage: 2.00
+      critrate: 0.1,
+      critDamage: 2
     }, {
       name: 'S8',
       mps: [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0],
@@ -87,8 +87,8 @@ export class SpawnerService {
       costFactor: 1.13,
       type: SpawnerType.UTILITY,
       productionFactor: 1.12,
-      critrate: 0,
-      critDamage: 2.00
+      critrate: 0.01,
+      critDamage: 1.26
     }, {
       name: 'S10',
       mps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
@@ -96,8 +96,8 @@ export class SpawnerService {
       costFactor: 1.13,
       type: SpawnerType.UTILITY,
       productionFactor: 1.12,
-      critrate: 0.01,
-      critDamage: 1.25
+      critrate: 0.1,
+      critDamage: 2.00
     }, {
       name: 'S11',
       mps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
@@ -105,8 +105,8 @@ export class SpawnerService {
       costFactor: 1.13,
       type: SpawnerType.MULTIPLIER,
       productionFactor: 1.12,
-      critrate: 0,
-      critDamage: 2.00
+      critrate: 0.01,
+      critDamage: 1.25
     }, {
       name: 'S12',
       mps: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -114,8 +114,8 @@ export class SpawnerService {
       costFactor: 1.13,
       type: SpawnerType.MULTIPLIER,
       productionFactor: 1.12,
-      critrate: 0.01,
-      critDamage: 1.25
+      critrate: 0.10,
+      critDamage: 2.00
     }];
 
 

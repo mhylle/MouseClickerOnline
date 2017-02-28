@@ -1,14 +1,18 @@
 <div class="spawnerName">{{spawner.name}}</div>
-<div *ngIf="spawner.avatar">
-  <img src="../../assets/icons/{{spawner.avatar}}" width="96px;"/>
+<div>
+  <img src="../../assets/icons/{{spawner.avatar}}" width="96px;" *ngIf="spawner.avatar"/>
   <span><label>Owned:</label> {{owned(spawner)}}</span>
 </div>
 <div class="spawnerPrice">
   <div class="col-md-6"><label>Cost: </label>{{convertToCost(spawner)}}</div>
   <div class="col-md-6"><label>MPS:</label> {{mps(spawner)}}</div>
 </div>
-<div><label>Critical chance:</label> {{spawner.critrate}}</div>
-<div><label>Critical Damage:</label> {{spawner.critDamage}}</div>
-
+<div class="panel panel-default">
+  <div class="panel panel-heading"><label>Extra happiness</label></div>
+  <div class="panel panel-body">
+    <div><label>Chance:</label> {{spawner.critrate}}</div>
+    <div><label>Amount:</label> {{spawner.critDamage}}</div>
+  </div>
+</div>
 
 <div><input type="button" (click)="purchase(spawner)" [disabled]="canAfford(spawner)" value="Purchase"></div>
